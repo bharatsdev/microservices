@@ -7,6 +7,6 @@ Tech Stack
 - aven 3.3.9+
 - Spring Boot 
 
-  1- JDK 8
-  2- aven 3.3.9+
-  3- Spring Boot 
+### Running Discover Server
+
+### Run Micro Services
