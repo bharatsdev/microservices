@@ -1,19 +1,22 @@
 # Spring-Boot-Micro-Services
 
 Tech Stack
--Java 8
-- Sprint Boot 2.0.0.RELEASE
-- Maven 3..3.Xlatest
+- Java 8
+- Sprint Boot 1.5.14RELEASE
+- Maven 3 Latest
 - H2 (With the dev profile you can use H2, but with the Prod Profile you need to use MySQL)
 - Eureka Cloud
 
 ### Running Discover Server
-Run Discovery server as spring boot 
+Run Discovery server as spring boot
 
-### Run Micro Services
+### Micro Services
+  - Currency Converter
+  - Currency Exchange
+  - Text Translation
+  - Weather  
 
-### All registered port for each micro service and Discover server
-Use distinct port for every micro service
-configure distince and port for each and every micro service
+### Configuration 
+  Port for each Service should be unique. 
 
 Spring Boot
