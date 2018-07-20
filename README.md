@@ -1,13 +1,13 @@
-# Spring-Boot-Micro-Services
-
+# Micorservices Spring-Boot
+ Creating MicroServices with the help of spring boot.
 Tech Stack
 - Java 8
-- Sprint Boot 1.5.14RELEASE
-- Maven 3 Latest
+- Sprint Boot
+- Maven
 - H2 (With the dev profile you can use H2, but with the Prod Profile you need to use MySQL)
-- Eureka Cloud
+- tomcat
 
-### Running Discover Server
+## Getting Start with MicroServices
 Run Discovery server as spring boot
 
 ### Micro Services
