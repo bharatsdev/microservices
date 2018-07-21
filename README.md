@@ -20,3 +20,7 @@ Run Discovery server as spring boot
   Port for each Service should be unique. 
 
 Spring Boot
+#### URLs
+ - http://localhost:8320/exchange-rates/from/EUR/to/INR
+ - http://localhost:8220/currency-converter/from/EUR/to/INR/quantity/100
+ - http://localhost:8220/currency-converter-feing/from/EUR/to/INR/quantity/1001
