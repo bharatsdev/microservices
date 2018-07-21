@@ -6,3 +6,4 @@ netflix-zuul-api-getway-server/bin/
 text-translation-micro-services/bin/
 weather-micro-service/bin/
 text-translation-micro-services/
+.settings

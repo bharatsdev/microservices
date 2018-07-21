@@ -12,7 +12,7 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
 /**
- * @author s727953
+ * @author aitechwizards
  *
  */
 @Component
