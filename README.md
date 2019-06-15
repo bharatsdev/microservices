@@ -12,7 +12,7 @@ Run Discovery server as spring boot
 
 ### Micro Services
   - Currency Converter
-  - Currency Exchange
+  - Exchange Rates
   - Text Translation
   - Weather  
 
