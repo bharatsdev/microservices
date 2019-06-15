@@ -30,6 +30,7 @@ public class WelcomeController {
 	public WeatherResponse weatherPost(@RequestBody WeatherRequestDTO request) throws URISyntaxException {
 
 		RestTemplate template = new RestTemplate();
+		@SuppressWarnings("unchecked")
 		Map<String, Object> result = template.getForObject(
 				WEATHER_APP_URL + request.getAddress().getCity() + "&appid=" + WEATHER_APP_ID + "&units=metric",
 				Map.class);
