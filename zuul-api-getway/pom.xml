@@ -10,8 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-	<artifactId>zuul-api-getway</artifactId>
-	<packaging>jar</packaging>
+	<artifactId>zuul-api-getway</artifactId> 
 	<name>zuul api Getway Server</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

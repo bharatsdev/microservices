@@ -10,7 +10,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-	<artifactId>exchange-rates-Service</artifactId>
+	<artifactId>exchange-rates</artifactId>
 	<packaging>jar</packaging>
 
 	<name>Currency Exchange Service</name>

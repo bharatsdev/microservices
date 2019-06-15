@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  currency-converter:
+    build: './currency-converter'
+  euraka-discovery:
+    build: './euraka-discovery'
+  exchange-rates:
+    build: './exchange-rates'
+  translation-service:
+    build: './translation-service'
+  weather-service:
+    build: './weather-service'
+  zuul-api-getway:
+    build: './zuul-api-getway'
