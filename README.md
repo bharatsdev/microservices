@@ -2,8 +2,7 @@
 [![Build Status](https://travis-ci.org/everythingisdata/Spring-Boot-Micro-Services.svg?branch=master)](https://travis-ci.org/everythingisdata/Spring-Boot-Micro-Services)
 
 # Micorservices 
---- 
- Creating MicroServices with the help of spring boot and Docker.
+Creating MicroServices with the help of spring boot and Docker.
 ### Tech Stack
 - Java 8
 - Sprint Boot
