@@ -1,5 +1,4 @@
-
-[![Build Status](https://travis-ci.org/everythingisdata/Spring-Boot-Micro-Services.svg?branch=master)](https://travis-ci.org/everythingisdata/Spring-Boot-Micro-Services)
+[![Build Status](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot.svg?branch=master)](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot)
 
 # Micorservices 
 Creating MicroServices with the help of spring boot and Docker.
