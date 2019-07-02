@@ -1,4 +1,9 @@
+
+[![Build Status](https://dev.azure.com/bharatmca2010/bharatmca2010/_apis/build/status/everythingisdata.Productionize-Machine-Learning?branchName=master)](https://dev.azure.com/bharatmca2010/bharatmca2010/_build/latest?definitionId=3&branchName=master)
+
 [![Build Status](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot.svg?branch=master)](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot)
+
+
 
 # Micorservices 
 Creating MicroServices with the help of spring boot and Docker.
