@@ -1,16 +1,10 @@
-FROM java:8
+#Base Image
+FROM openjdk:8-jdk-alpine
 
-# Install maven
-RUN apt-get -y update && apt-get install -y maven
+MAINTAINER  everythingisdata
 
-WORKDIR /code
+ADD ["target/currency-converter-0.0.1-SNAPSHOT.jar", "currency-converter.jar"]
 
-# Prepare by downloading dependencies
-ADD pom.xml /code/pom.xml
+ENTRYPOINT ["java","-jar","currency-converter.jar"]
 
-# Adding source, compile and package into a fat jar
-ADD src /code/src
-RUN ["mvn", "package"]
-
-EXPOSE 8500
-CMD ["mvn", "tomcat7:run"]
+EXPOSE 8300 8787

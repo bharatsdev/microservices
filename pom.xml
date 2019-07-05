@@ -11,20 +11,11 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.techwizards</groupId>
-	<artifactId>spring-boot-micro-services</artifactId>
+	<artifactId>Micro-Services-SpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Parent Module for Microservice ${project.artifactId}</name>
-
-	<modules>
-		<module>currency-converter</module>
-		<module>euraka-discovery</module>
-		<module>text-translator</module>
-		<module>weather-service</module>
-		<module>exchange-rates</module>
-		<module>zuul-api-getway</module>
-	</modules>
+	<name>${project.artifactId} </name>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -34,7 +25,6 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring-cloud.version>Edgware.SR3</spring-cloud.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -55,5 +45,12 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	<modules>
+		<module>currency-converter</module>
+		<module>euraka-discovery</module>
+		<module>exchange-rates</module>
+		<module>translation-service</module>
+		<module>weather-service</module>
+		<module>zuul-api-getway</module>
+	</modules>
 </project>

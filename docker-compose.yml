@@ -1,15 +1,62 @@
 version: '3'
-
 services:
+  discovery:
+    build: ./euraka-discovery
+    networks:
+    - everythingisdata-network
+    ports:
+    - 8761:8761
+    - 18787:8787
+    
   currency-converter:
-    build: './currency-converter'
-  euraka-discovery:
-    build: './euraka-discovery'
-  exchange-rates:
-    build: './exchange-rates'
+    build: ./currency-converter
+    ports:
+    - 8300:8300
+    - 28787:8787
+    networks:
+    - everythingisdata-network
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+    
+  exchange-rate-service:
+    build: ./exchange-rates
+    ports:
+    - 8200:8200
+    - 38787:8787
+    networks:
+    - everythingisdata-network
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+#    deploy:
+#      mode: replicated
+#      replicas: 3
   translation-service:
-    build: './translation-service'
+    build: ./translation-service
+    ports:
+    - 8400:8400
+    - 48787:8787
+    networks:
+    - everythingisdata-network
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
   weather-service:
-    build: './weather-service'
+    build: ./weather-service
+    ports:
+    - 8500:8500
+    - 58787:8787
+    networks:
+    - everythingisdata-network
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
   zuul-api-getway:
-    build: './zuul-api-getway'
+    build: ./zuul-api-getway
+    ports:
+    - 8600:8600
+    - 8780:8787
+    networks:
+    - everythingisdata-network
+    environment:
+    - SPRING_PROFILES_ACTIVE=docker
+networks:
+  everythingisdata-network:
+    driver: bridge

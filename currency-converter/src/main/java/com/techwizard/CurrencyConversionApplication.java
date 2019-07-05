@@ -12,8 +12,6 @@ import org.springframework.context.annotation.Bean;
 @EnableDiscoveryClient
 public class CurrencyConversionApplication {
 
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(CurrencyConversionApplication.class, args);
 	}

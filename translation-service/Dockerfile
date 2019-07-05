@@ -3,9 +3,9 @@ FROM openjdk:8-jdk-alpine
 
 MAINTAINER  everythingisdata
 
-ADD ["target/weather-service-0.0.1-SNAPSHOT.jar", "app.jar"]
+ADD ["target/translation-service-0.0.1-SNAPSHOT.jar", "app.jar"]
 
-EXPOSE 8500 8787
+EXPOSE 8400 8787
 
 ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 

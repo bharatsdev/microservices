@@ -6,7 +6,7 @@
 
 	<parent>
 		<groupId>com.techwizards</groupId>
-		<artifactId>spring-boot-micro-services</artifactId>
+		<artifactId>Micro-Services-SpringBoot</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>

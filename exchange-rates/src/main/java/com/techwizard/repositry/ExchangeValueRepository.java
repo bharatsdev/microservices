@@ -1,4 +1,4 @@
-package com.techwizards.repositry;
+package com.techwizard.repositry;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

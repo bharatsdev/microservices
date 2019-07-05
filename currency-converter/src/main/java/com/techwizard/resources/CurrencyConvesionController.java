@@ -24,7 +24,7 @@ import com.techwizard.feignproxy.CurrencyExchangeFeignProxy;
 import com.techwizard.model.CurrencyConvesion;
 
 /**
- * @author techwizards
+ * @author everythingisdata
  *
  */
 @RestController
@@ -35,8 +35,16 @@ public class CurrencyConvesionController {
 	private CurrencyExchangeFeignProxy proxy;
 	@Autowired
 	private EurekaClient eurekaClient;
-
- 
+	
+	
+	/**
+	 * @return
+	 */
+	@GetMapping("/")
+	private String getGreetings() {
+		LOGGER.info("Response from Currency Conversion Service ");
+		return "This response from First Currency Conversion Service !";
+	}
 
 	/**
 	 * This service will use RestTemplate to communicate with another Micro Service
@@ -89,5 +97,7 @@ public class CurrencyConvesionController {
 		return new CurrencyConvesion(1l, from, to, responseBean.getConversionMultiple(), quantity,
 				quantity.multiply(responseBean.getConversionMultiple()), responseBean.getPort());
 	}
+
+
 
 }

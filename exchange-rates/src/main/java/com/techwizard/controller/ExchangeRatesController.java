@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techwizard.model.ExchangeRates;
-import com.techwizards.repositry.ExchangeValueRepository;
+import com.techwizard.repositry.ExchangeValueRepository;
 
 /**
  * @author aitechwizards

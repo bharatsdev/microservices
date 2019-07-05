@@ -1,16 +1,14 @@
-FROM java:8
+#Base Image
+FROM openjdk:8-jdk-alpine
 
-# Install Maven  Docker
-RUN apt-get -y update && apt-get install -y maven
+MAINTAINER  everythingisdata
 
-WORKDIR /code
+ADD ["target/zuul-api-getway-0.0.1-SNAPSHOT.jar", "app.jar"]
 
-# Prepare by downloading dependencies
-ADD pom.xml /code/pom.xml
+EXPOSE 8600 8787
 
-# Adding source, compile and package into a fat jar
-ADD src /code/src
-RUN ["mvn", "package"]
+ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
 
-EXPOSE 8300
-CMD ["mvn", "tomcat7:run"]
+RUN sh -c 'touch /app.jar'
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /app.jar" ]
