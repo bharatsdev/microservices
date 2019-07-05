@@ -5,7 +5,7 @@
 
 
 # Micorservices 
-Creating MicroServices with the help of spring boot and Docker.
+Creating MicroServices with the help of spring boot and Docker. Docke-compose
 ### Tech Stack
 - Java 8
 - Sprint Boot
@@ -27,6 +27,8 @@ Run Discovery server as spring boot
 
 Spring Boot
 #### URLs
+
+ - http://localhost:876/euraka
  - http://localhost:8320/exchange-rates/from/EUR/to/INR
  - http://localhost:8220/currency-converter/from/EUR/to/INR/quantity/100
  - http://localhost:8220/currency-converter-feing/from/EUR/to/INR/quantity/1001
