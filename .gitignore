@@ -19,4 +19,4 @@ zuul-api-getway/bin
 *.jar
 *.original
 *.lst
-
+*.springBeans

@@ -1,14 +1,14 @@
 #Base Image
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jre-alpine
 
-MAINTAINER  everythingisdata
+MAINTAINER  everythingisdata.githib.io 
 
-ADD ["target/zuul-api-getway-0.0.1-SNAPSHOT.jar", "app.jar"]
+COPY . /var/zuul
+WORKDIR /var/zuul
 
+
+#To Reduce Tomcat startup time. We added a system property pointing to "dev/urandom" as source of entropy.
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","target/zuul-api-getway-0.0.1-SNAPSHOT.jar"]
+
+#On port application will listing
 EXPOSE 8600 8787
-
-ENV JAVA_OPTS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8787,suspend=n"
-
-RUN sh -c 'touch /app.jar'
-
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=docker -jar /app.jar" ]

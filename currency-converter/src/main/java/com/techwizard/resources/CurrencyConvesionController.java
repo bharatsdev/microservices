@@ -35,8 +35,7 @@ public class CurrencyConvesionController {
 	private CurrencyExchangeFeignProxy proxy;
 	@Autowired
 	private EurekaClient eurekaClient;
-	
-	
+
 	/**
 	 * @return
 	 */
@@ -97,7 +96,5 @@ public class CurrencyConvesionController {
 		return new CurrencyConvesion(1l, from, to, responseBean.getConversionMultiple(), quantity,
 				quantity.multiply(responseBean.getConversionMultiple()), responseBean.getPort());
 	}
-
-
 
 }

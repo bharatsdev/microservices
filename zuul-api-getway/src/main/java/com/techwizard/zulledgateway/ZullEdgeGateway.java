@@ -1,4 +1,4 @@
-package com.techwizard.netflixzuulapigetwayserver;
+package com.techwizard.zulledgateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 @EnableZuulProxy
 @EnableDiscoveryClient
 @SpringBootApplication
-public class NetflixZuulApiGetwayServerApplication {
+public class ZullEdgeGateway {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NetflixZuulApiGetwayServerApplication.class, args);
+		SpringApplication.run(ZullEdgeGateway.class, args);
 	}
 
 	@Bean

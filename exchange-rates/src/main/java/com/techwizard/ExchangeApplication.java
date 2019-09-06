@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class CurrencyExchangeApplication {
+public class ExchangeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CurrencyExchangeApplication.class, args);
+		SpringApplication.run(ExchangeApplication.class, args);
 	}
 
 }

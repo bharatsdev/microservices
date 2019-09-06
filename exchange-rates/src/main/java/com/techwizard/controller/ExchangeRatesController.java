@@ -38,4 +38,13 @@ public class ExchangeRatesController {
 		return ex;
 	}
 
+	/**
+	 * @return
+	 */
+	@GetMapping("/")
+	private String getGreetings() {
+		LOGGER.info("ExchangeRates Service ");
+		return " ExchangeRates Service !";
+	}
+
 }

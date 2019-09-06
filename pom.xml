@@ -10,7 +10,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.techwizards</groupId>
+	<groupId>com.everythingisdata</groupId>
 	<artifactId>Micro-Services-SpringBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -47,10 +47,12 @@
 	</dependencies>
 	<modules>
 		<module>currency-converter</module>
-		<module>euraka-discovery</module>
+		
 		<module>exchange-rates</module>
-		<module>translation-service</module>
-		<module>weather-service</module>
+		
+		
 		<module>zuul-api-getway</module>
+		
+		<module>euraka-discovery</module>
 	</modules>
 </project>

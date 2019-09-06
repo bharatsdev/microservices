@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.techwizard.netflixzuulapigetwayserver;
+package com.techwizard.zulledgateway;
 
 import javax.servlet.http.HttpServletRequest;
 

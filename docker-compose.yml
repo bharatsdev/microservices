@@ -3,60 +3,57 @@ services:
   discovery:
     build: ./euraka-discovery
     networks:
-    - everythingisdata-network
+    - my_cloud_network
     ports:
     - 8761:8761
     - 18787:8787
-    
-  currency-converter:
-    build: ./currency-converter
-    ports:
-    - 8300:8300
-    - 28787:8787
-    networks:
-    - everythingisdata-network
-    environment:
-    - SPRING_PROFILES_ACTIVE=docker
-    
-  exchange-rate-service:
+    restart: on-failure
+  exchangerate:
     build: ./exchange-rates
     ports:
     - 8200:8200
     - 38787:8787
+    depends_on:
+    - discovery
+    links:
+    - discovery
     networks:
-    - everythingisdata-network
+    - my_cloud_network
     environment:
-    - SPRING_PROFILES_ACTIVE=docker
-#    deploy:
-#      mode: replicated
-#      replicas: 3
-  translation-service:
-    build: ./translation-service
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
+    restart: on-failure
+  converter:
+    build: ./currency-converter
     ports:
-    - 8400:8400
-    - 48787:8787
+    - 8300:8300
+    - 28787:8787
+    depends_on:
+    - exchangerate
+    - discovery
+    links:
+    - exchangerate
+    - discovery
     networks:
-    - everythingisdata-network
+    - my_cloud_network
     environment:
-    - SPRING_PROFILES_ACTIVE=docker
-  weather-service:
-    build: ./weather-service
-    ports:
-    - 8500:8500
-    - 58787:8787
-    networks:
-    - everythingisdata-network
-    environment:
-    - SPRING_PROFILES_ACTIVE=docker
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
+    restart: on-failure
   zuul-api-getway:
     build: ./zuul-api-getway
     ports:
     - 8600:8600
     - 8780:8787
+    depends_on:
+    - discovery
+    - exchangerate
+    - converter
+    links:
+    - discovery
     networks:
-    - everythingisdata-network
+    - my_cloud_network
     environment:
-    - SPRING_PROFILES_ACTIVE=docker
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
+    restart: on-failure
 networks:
-  everythingisdata-network:
+  my_cloud_network:
     driver: bridge
