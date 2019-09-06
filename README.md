@@ -14,9 +14,9 @@ This repository has basic code related to micro service in spring boot.
 
 ### Tech Stack
 - Java 8
-- Sprint Boot
+- Spring Boot
 - Maven
-- H2 (With the dev profile you can use H2, but with the Prod Profile you need to use MySQL)
+- H2 (With the Dev profile you can use H2, but with the Prod Profile you need to use MySQL)
 - tomcat
 - Docker, Docker-compose
 
@@ -41,8 +41,8 @@ Spring Boot
 #### Access URL Individual Service 
  - http://localhost:8761/
  - http://localhost:8300/
- - http://localhost:8320/exchangerate/from/EUR/to/INR
- - http://localhost:8220/converter/from/EUR/to/INR/quantity/100 
+ - http://localhost:8300/exchangerate/from/EUR/to/INR
+ - http://localhost:8200/converter/from/EUR/to/INR/quantity/100 
  
 #### Access through Edge Gateway
  - http://localhost:8600/converter-service/
