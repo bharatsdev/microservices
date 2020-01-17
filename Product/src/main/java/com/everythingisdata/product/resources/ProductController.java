@@ -8,6 +8,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ import com.netflix.discovery.shared.Application;
  * @author everythingisdata
  *
  */
-@RestController(value = "/product")
+@RestController()
 public class ProductController {
 	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(ProductController.class);
 	private static final String LOCAL_SERVER_PORT = "local.server.port";
@@ -36,9 +37,9 @@ public class ProductController {
 	 * @return
 	 */
 	@GetMapping("/")
-	private String getGreetings() {
-		LOGGER.info("Response from Currency Conversion Service ");
-		return "This response from First Currency Conversion Service !";
+	private ResponseEntity<String> getGreetings() {
+		LOGGER.info("Response From Product Service!");
+		return new ResponseEntity<>( "Response From Product Service!", HttpStatus.OK);
 	}
 
 	/**

@@ -3,50 +3,43 @@
 [![Build Status](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot.svg?branch=master)](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot)
 
 
+# Product Ordering - MicroServices
 
-# Microservices
----
-This repository has basic code related to micro service in spring boot. 
-- Creation of Microservices
-- Inter-communication in between Microservices
-- Dockerization of Microservices
-- Docker-compose in Microservices
+	This repository has basic code related to MicroService in spring boot. 
+	- Creation of MicroServices
+	- Intercommunication in between MicroServices
+	- Dockerization of MicroServices
+	- Docker-Compose in MicroServices
 
-### Tech Stack
-- Java 8
-- Spring Boot
-- Maven
-- H2 (With the Dev profile you can use H2, but with the Prod Profile you need to use MySQL)
-- tomcat
-- Docker, Docker-compose
+# Technologies
+
+	- Java 8
+	- lombok
+	- Spring Boot
+	- Maven
+	- H2 (With the Dev profile you can use H2, but with the Prod Profile you need to use MySQL)
+	- Tomcat
+	- Docker, Docker-compose
 
 ### Components
-  - Currency Converter
-  - Exchange Rates
-  - Zuul Api Gateway
-  - eureka discovery
+	  - Currency Converter
+	  - Exchange Rates
+	  - Zuul Api Gateway
+	  - eureka discovery
 
 
-### Commands to build and run 
-mvn clean install 
-docker-compose up --build
-docker-compose up  --force-recreate --build
+## Commands to build and run 
+	- mvn clean install 
+	- docker-compose up --build
+	- docker-compose up  --force-recreate --build
 
-
-
-### Configuration 
-  Port for each Service should be unique. 
-
-Spring Boot
-#### Access URL Individual Service 
- - http://localhost:8761/
- - http://localhost:8300/
- - http://localhost:8300/exchangerate/from/EUR/to/INR
- - http://localhost:8200/converter/from/EUR/to/INR/quantity/100 
- 
-#### Access through Edge Gateway
- - http://localhost:8600/converter-service/
- - http://localhost:8600/exchangerate/
- - http://localhost:8600/exchangerate/from/EUR/to/INR
- - http://localhost:8600/converter/from/EUR/to/INR/quantity/100 
+## Configuration 
+  Port for each Service should be unique. Spring Boot
+  
+## Service Endpoints
+	 - http://localhost:8766
+	 - http://localhost:8300
+## Edge Gateway URL
+	 - http://localhost:8600/product-service
+	 - http://localhost:8600/order-service
 
