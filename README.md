@@ -1,6 +1,6 @@
 [![Build Status](https://dev.azure.com/everythingisdata/Micro-Services-With-Docker-Springboot/_apis/build/status/everythingisdata.Micro-Services-Spring-Boot%20(1)?branchName=master)](https://dev.azure.com/everythingisdata/Micro-Services-With-Docker-Springboot/_build/latest?definitionId=4&branchName=master)
 
-[![Build Status](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot.svg?branch=master)](https://travis-ci.org/everythingisdata/Micro-Services-Spring-Boot)
+[![Build Status](https://travis-ci.org/everythingisdata/microservices-springboot.svg?branch=master)](https://travis-ci.org/everythingisdata/microservices-springboot)
 
 
 # Product Ordering - MicroServices
