@@ -20,3 +20,6 @@ zuul-api-getway/bin
 *.original
 *.lst
 *.springBeans
+Product/target/
+Auth/target/
+Order/target/
