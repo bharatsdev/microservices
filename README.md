@@ -42,4 +42,13 @@
 ## Edge Gateway URL
 	 - http://localhost:8600/product-service
 	 - http://localhost:8600/order-service
+	 
+## Authentication URL
+	- http://localhost:8100/authenticate
+		{
+		"username":"everything",
+		"password":"password"
+		}
+		
+		pass request with  Authorization: Bearer
 

@@ -1,4 +1,4 @@
-package com.everythingisdata.auth.common;
+package com.ms.auth.common;
 
 import lombok.Getter;
 import lombok.Setter;

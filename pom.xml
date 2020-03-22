@@ -49,9 +49,9 @@
 
 	<modules>
 		<module>Auth</module>
+		<module>euraka-discovery</module>
 		<module>Order</module>
 		<module>Product</module>
-		<module>euraka-discovery</module>
 		<module>zuul-api-getway</module>
 	</modules>
 </project>

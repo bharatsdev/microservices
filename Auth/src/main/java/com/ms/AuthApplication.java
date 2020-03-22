@@ -1,11 +1,10 @@
-package com.everythingisdata;
+package com.ms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-@SpringBootApplication 
-@EnableDiscoveryClient
+@SpringBootApplication
+// @EnableDiscoveryClient
 public class AuthApplication {
 
 	public static void main(String[] args) {
@@ -16,4 +15,6 @@ public class AuthApplication {
 	// public AlwaysSampler defaultSampler() {
 	// return new AlwaysSampler();
 	// }
+	
+	
 }

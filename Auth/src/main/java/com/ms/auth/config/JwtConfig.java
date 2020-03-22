@@ -1,4 +1,4 @@
-package com.everythingisdata.auth.common;
+package com.ms.auth.config;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -28,6 +28,6 @@ public class JwtConfig {
 	private int expiration;
 
 	@Value("${security.jwt.secret:JwtSecretKey}")
-	private String secret;
+	private String secretKey;
 
 }

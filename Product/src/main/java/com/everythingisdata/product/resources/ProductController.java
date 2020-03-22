@@ -20,13 +20,14 @@ import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 
 /**
- * @author everythingisdata
+ * @author Bharat2010
  *
  */
-@RestController()
+@RestController
 public class ProductController {
 	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(ProductController.class);
 	private static final String LOCAL_SERVER_PORT = "local.server.port";
+
 	@Autowired
 	private Environment env;
 
@@ -39,7 +40,7 @@ public class ProductController {
 	@GetMapping("/")
 	private ResponseEntity<String> getGreetings() {
 		LOGGER.info("Response From Product Service!");
-		return new ResponseEntity<>( "Response From Product Service!", HttpStatus.OK);
+		return new ResponseEntity<>("Response From Product Service!", HttpStatus.OK);
 	}
 
 	/**
@@ -79,8 +80,9 @@ public class ProductController {
 	}
 
 	/**
-	 * Inter-communication in between Micro service over Feing client * @param from
+	 * Intercommunication in between Micro service over Feign client
 	 * 
+	 * @param from
 	 * @param to
 	 * @param quantity
 	 * @return
