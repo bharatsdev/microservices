@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ms.auth.config.JwtTokenUtil;
-import com.ms.auth.model.JwtRequest;
-import com.ms.auth.model.JwtResponse;
-import com.ms.auth.service.JwtUserDetailsService;
+import com.ms.common.auth.config.JwtTokenUtil;
+import com.ms.common.auth.model.JwtRequest;
+import com.ms.common.auth.model.JwtResponse;
+import com.ms.common.auth.service.JwtUserDetailsService; 
 
 /**
  * @author Bharat2010

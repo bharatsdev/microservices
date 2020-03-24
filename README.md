@@ -43,7 +43,7 @@
 	 - http://localhost:8600/product-service
 	 - http://localhost:8600/order-service
 	 
-## Authentication URL
+## Authentication URL direct
 	- http://localhost:8100/authenticate
 		{
 		"username":"everything",
@@ -51,4 +51,13 @@
 		}
 		
 		pass request with  Authorization: Bearer
+## Authentication with zull
 
+	 http://192.168.1.102:8600/auth/authenticate
+	 http://192.168.1.102:8600/auth/greetings
+	 ![]{AfterAuthReqst.PNG}
+
+## TODO
+	- Authentication
+	- Test case
+	- JWT integration

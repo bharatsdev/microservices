@@ -4,14 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.everythingisdata</groupId>
-		<artifactId>Micro-Services</artifactId>
+		<artifactId>microservices</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>euraka-discovery</artifactId>
 	<packaging>jar</packaging>
 
-	<name>netflix Euraka Naming Server</name>
+	<name>Discovery  Server</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
