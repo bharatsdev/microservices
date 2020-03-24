@@ -55,9 +55,12 @@
 
 	 http://192.168.1.102:8600/auth/authenticate
 	 http://192.168.1.102:8600/auth/greetings
-	 ![]{AfterAuthReqst.PNG}
+	 ![](/AfterAuthReqst.PNG)
 
 ## TODO
 	- Authentication
 	- Test case
 	- JWT integration
+
+![](AfterAuthReqst.PNG)
+![](AuthRequest.PNG)
