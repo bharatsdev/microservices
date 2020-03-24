@@ -1,6 +1,6 @@
-[![Build Status](https://dev.azure.com/everythingisdata/Micro-Services-With-Docker-Springboot/_apis/build/status/everythingisdata.Micro-Services-Spring-Boot%20(1)?branchName=master)](https://dev.azure.com/everythingisdata/Micro-Services-With-Docker-Springboot/_build/latest?definitionId=4&branchName=master)
 
-[![Build Status](https://travis-ci.org/everythingisdata/microservices-springboot.svg?branch=master)](https://travis-ci.org/everythingisdata/microservices-springboot)
+[![Build Status](https://travis-ci.org/everythingisdata/microservices-springboot.svg?branch=master)](https://travis-ci.org/everythingisdata/microservices-springboot) | [![Build Status](https://dev.azure.com/everythingisdata/Micro-Services-With-Docker-Springboot/_apis/build/status/everythingisdata.Micro-Services-Spring-Boot%20(1)?branchName=master)](https://dev.azure.com/everythingisdata/Micro-Services-With-Docker-Springboot/_build/latest?definitionId=4&branchName=master)
+
 
 
 # Product Ordering - MicroServices
@@ -8,6 +8,7 @@
 	This repository has basic code related to MicroService in spring boot. 
 	- Creation of MicroServices
 	- Intercommunication in between MicroServices
+	- Authorization of Micro by JWT
 	- Dockerization of MicroServices
 	- Docker-Compose in MicroServices
 
@@ -19,14 +20,15 @@
 	- Maven
 	- H2 (With the Dev profile you can use H2, but with the Prod Profile you need to use MySQL)
 	- Tomcat
+	- JWT
 	- Docker, Docker-compose
 
 ### Components
-	  - Currency Converter
-	  - Exchange Rates
-	  - Zuul Api Gateway
-	  - eureka discovery
-
+	  - API Gateway
+	  - Discovery Server
+	  - Auth Service
+	  - Order service
+	  - Product Service
 
 ## Commands to build and run 
 	- mvn clean install 
@@ -51,16 +53,16 @@
 		}
 		
 		pass request with  Authorization: Bearer
-## Authentication with zull
+## Authentication with ZUUL
 
 	 http://192.168.1.102:8600/auth/authenticate
 	 http://192.168.1.102:8600/auth/greetings
-	 ![](/AfterAuthReqst.PNG)
+![](AfterAuthReqst.PNG)
+![](AuthRequest.PNG)
+
 
 ## TODO
 	- Authentication
 	- Test case
 	- JWT integration
 
-![](AfterAuthReqst.PNG)
-![](AuthRequest.PNG)
