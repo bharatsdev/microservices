@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: edge-gateway
+server:
+  port: 8600
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    register-with-eureka: true
+    fetch-registry: true
+  serviceUrl:
+    defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka/}
+zuul:
+  routes:
+    prodctService:
+      path: /products/**
+      service-id: product-service
+    orderService:
+      path: /orders/**
+      service-id: order-service
+    authService:
+      path: /auth/**
+      service-id: auth-service
+      strip-prefix: true
+      sensitive-headers: Cookie,Set-Cookie

@@ -47,12 +47,11 @@
 
 
 	<modules>
-		<module>Auth</module>
-		<module>Order</module>
-		<module>Product</module>
-		
-		<module>euraka-discovery</module>
-		<module>zuul-api-getway</module>
-		<module>common</module>
+		<module>api-getway</module>
+		<module>auth-service</module>
+		<module>common-service</module>
+		<module>discovery-service</module>
+		<module>order-service</module>
+		<module>product-service</module>
 	</modules>
 </project>
