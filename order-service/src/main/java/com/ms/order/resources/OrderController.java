@@ -16,14 +16,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.ms.order.feignproxy.OrderfeignProxy;
+import com.ms.order.feignproxy.ProductequestFeingProxy;
 import com.ms.order.model.Order;
+import com.ms.order.model.Product;
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 
 /**
- * @author everythingisdata
+ * @author Bharat2010
  *
  */
 @RestController(value = "/order")
@@ -37,7 +38,7 @@ public class OrderController {
 	@Autowired
 	private Environment env;
 	@Autowired
-	private OrderfeignProxy proxy;
+	private ProductequestFeingProxy productequestFeingProxy;
 	@Autowired
 	private EurekaClient eurekaClient;
 
@@ -106,23 +107,14 @@ public class OrderController {
 
 	/**
 	 * Inter-communication in between Micro service over Feing client * @param from
-	 * 
-	 * @param to
-	 * @param quantity
-	 * @return
-	 */
-	@GetMapping(value = "/currency-converter-feing/from/{from}/to/{to}/quantity/{quantity}")
-	public Order convertFeig(@PathVariable("from") String from, @PathVariable("to") String to,
-			@PathVariable("quantity") BigDecimal quantity) {
+	 **/
 
-		Order responseBean = proxy.retriveExchangeValue(from, to);
-
+	@GetMapping(value = "/products")
+	public ResponseEntity<List<Product>> fetchProudcts() {
+		LOGGER.info("[INFO] : fetchProudcts invoked....!");
+		List<Product> responseBean = productequestFeingProxy.retriveProducts();
 		LOGGER.info(" {}  Response ", responseBean);
-		//
-		return new Order(1l, from, to, responseBean.getConversionMultiple(), quantity,
-				quantity.multiply(responseBean.getConversionMultiple()), responseBean.getPort());
-
-		// return null;
+		return ResponseEntity.ok().body(responseBean);
 	}
 
 }

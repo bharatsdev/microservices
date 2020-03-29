@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ms.product.domain.Product;
 import com.ms.product.service.ProductService;
-import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
-import com.netflix.discovery.shared.Application;
 
 /**
  * @author Bharat2010
@@ -53,14 +51,14 @@ public class ProductController {
 	 * 
 	 */
 	@GetMapping(value = "/products")
-	public ResponseEntity<List<Product>> getAllProducts() {
+	public List<Product> getAllProducts() {
 		LOGGER.info("[INFO] : GetAllProducts invoked..!");
 		List<Product> products = productService.getAllProduct();
 
-		Application app = eurekaClient.getApplication("Exchange-Rate-Service");
-		List<InstanceInfo> instanceList = app.getInstances();
-		InstanceInfo instacne = instanceList.get(0);
-		LOGGER.info("{}", instacne.getIPAddr());
+		// Application app = eurekaClient.getApplication("Exchange-Rate-Service");
+		// List<InstanceInfo> instanceList = app.getInstances();
+		// InstanceInfo instacne = instanceList.get(0);
+		// LOGGER.info("{}", instacne.getIPAddr());
 
 		// Feign - Problem 1
 		Map<String, String> urivariables = new HashMap<>();
@@ -73,12 +71,12 @@ public class ProductController {
 		// CurrencyConvesion.class, urivariables);
 		// CurrencyConvesion bean = responseEntity.getBody();
 
-		LOGGER.info("Get Instace Info by serice Name >>>>>");
+		LOGGER.info("Get Instace Info by serice Name >>>>>" + products);
 
 		// new CurrencyConvesion(1l, from, to, bean.getConversionMultiple(), quantity,
 		// quantity.multiply(bean.getConversionMultiple()), bean.getPort());
 
-		return ResponseEntity.ok(products);
+		return products;
 
 	}
 
