@@ -1,4 +1,3 @@
-api-getway/target/
 .settings/
 .project
 *.classpath
@@ -6,3 +5,11 @@ api-getway/target/
 *.original
 *.lst
 *.springBeans
+/api-getway/target/
+/auth-service/target/
+/discovery-service/target/
+/order-service/target/
+*.iml
+/microservices.iml
+/product-service/target/
+/.idea/

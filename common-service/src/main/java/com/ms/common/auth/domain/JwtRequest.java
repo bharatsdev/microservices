@@ -1,12 +1,8 @@
 package com.ms.common.auth.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@ToString
-@Setter
-@Getter
+@Data
 public class JwtRequest {
 
 	private String username;

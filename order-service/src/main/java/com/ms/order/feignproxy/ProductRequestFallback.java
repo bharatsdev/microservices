@@ -14,10 +14,10 @@ import com.ms.order.model.Product;
  *
  */
 @Configuration
-public class ProductRequestFallback implements ProductequestFeingProxy {
+public class ProductRequestFallback implements ProductRequestFeingProxy {
 
 	@Override
-	public List<Product> retriveProducts() {
+	public List<Product> retrieveProducts() {
  		return new ArrayList<>();
 	}
 

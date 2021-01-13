@@ -10,7 +10,7 @@ import com.ms.order.model.Product;
 
 @FeignClient(value = "product-service", fallback = ProductRequestFallback.class)
 @RibbonClient(value = "product-service")
-public interface ProductequestFeingProxy {
+public interface ProductRequestFeingProxy {
 
 	/**
 	 * Fetch Product details from product service
@@ -18,6 +18,6 @@ public interface ProductequestFeingProxy {
 	 * @return
 	 */
 	@GetMapping("/order/products")
-	public  List<Product>  retriveProducts();
+	public  List<Product> retrieveProducts();
 
 }

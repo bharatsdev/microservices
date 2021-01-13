@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ms.product.service;
 
 import java.util.List;
@@ -25,11 +22,10 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> getAllProduct() {
 		return productRepository.findAll();
-
 	}
 
 	@Override
-	@Transactional(readOnly = false)
+	@Transactional
 	public void save(Product product) {
 		productRepository.save(product);
 
@@ -39,5 +35,4 @@ public class ProductServiceImpl implements ProductService {
 	public void deleteAll() {
 		productRepository.deleteAll();
 	}
-
 }

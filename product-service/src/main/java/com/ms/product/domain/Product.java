@@ -1,27 +1,19 @@
 package com.ms.product.domain;
 
-import java.io.Serializable;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import java.io.Serializable;
 
 /**
  * @author Bharat2010
  */
-@Setter
-@Getter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	private String id;
@@ -35,5 +27,4 @@ public class Product implements Serializable {
 		this.label = label;
 		this.price = price;
 	}
-
 }

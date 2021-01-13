@@ -1,11 +1,12 @@
 package com.ms.order.resources;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.slf4j.Logger;
+import com.ms.order.feignproxy.ProductRequestFeingProxy;
+import com.ms.order.model.Order;
+import com.ms.order.model.Product;
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
+import com.netflix.discovery.shared.Application;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -16,20 +17,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.ms.order.feignproxy.ProductequestFeingProxy;
-import com.ms.order.model.Order;
-import com.ms.order.model.Product;
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.EurekaClient;
-import com.netflix.discovery.shared.Application;
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Bharat2010
  *
  */
 @RestController(value = "/order")
+@Slf4j
 public class OrderController {
-	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(OrderController.class);
 	private static final String LOCAL_SERVER_PORT = "local.server.port";
 
 	@Autowired
@@ -38,7 +37,7 @@ public class OrderController {
 	@Autowired
 	private Environment env;
 	@Autowired
-	private ProductequestFeingProxy productequestFeingProxy;
+	private ProductRequestFeingProxy productRequestFeingProxy;
 	@Autowired
 	private EurekaClient eurekaClient;
 
@@ -47,8 +46,8 @@ public class OrderController {
 	 */
 	@GetMapping("/")
 	private ResponseEntity<String> getGreetings() {
-		LOGGER.info("Response from  Order Service ");
-		return new ResponseEntity<String>("This response from   Order Service : " + env.getProperty(LOCAL_SERVER_PORT),
+		log.info("Response from  Order Service ");
+		return new ResponseEntity<>("This response from   Order Service : " + env.getProperty(LOCAL_SERVER_PORT),
 				HttpStatus.OK);
 	}
 
@@ -81,11 +80,11 @@ public class OrderController {
 	public Order convert(@PathVariable("from") String from, @PathVariable("to") String to,
 			@PathVariable("quantity") BigDecimal quantity) {
 
-		LOGGER.info("Get Instace Info by serice Name");
+		log.info("Get Instace Info by serice Name");
 		Application app = eurekaClient.getApplication("Exchange-Rate-Service");
 		List<InstanceInfo> instanceList = app.getInstances();
 		InstanceInfo instacne = instanceList.get(0);
-		LOGGER.info("{}", instacne.getIPAddr());
+		log.info("{}", instacne.getIPAddr());
 
 		// Feign - Problem 1
 		Map<String, String> urivariables = new HashMap<>();
@@ -98,7 +97,7 @@ public class OrderController {
 		// CurrencyConvesion.class, urivariables);
 		// CurrencyConvesion bean = responseEntity.getBody();
 
-		LOGGER.info("Get Instace Info by serice Name >>>>>");
+		log.info("Get Instace Info by serice Name >>>>>");
 
 		return null;
 		// new CurrencyConvesion(1l, from, to, bean.getConversionMultiple(), quantity,
@@ -110,10 +109,11 @@ public class OrderController {
 	 **/
 
 	@GetMapping(value = "/products")
-	public ResponseEntity<List<Product>> fetchProudcts() {
-		LOGGER.info("[INFO] : fetchProudcts invoked....!");
-		List<Product> responseBean = productequestFeingProxy.retriveProducts();
-		LOGGER.info(" {}  Response ", responseBean);
+	public ResponseEntity<List<Product>> fetchProducts() {
+		log.info("[INFO] : fetchProducts invoked....!");
+		List<Product> responseBean = productRequestFeingProxy.retrieveProducts();
+		log.info(" {}  Response ", responseBean);
+
 		return ResponseEntity.ok().body(responseBean);
 	}
 

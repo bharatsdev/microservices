@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.ms.auths.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,5 +1,6 @@
 package com.ms.common.auth.config;
 
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
 import lombok.Getter;
@@ -10,9 +11,7 @@ import lombok.ToString;
  * @author Bharat2010
  *
  */
-@ToString
-@Getter
-@Setter
+@Data
 public class JwtConfig {
 
 	@Value("${security.jwt.uri:/auth/**}")

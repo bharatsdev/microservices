@@ -1,21 +1,10 @@
 package com.ms.auth.common;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+@Data
 public class AuthUser {
 	private Integer id;
 	private String username, password;
 	private String role;
-
-	public AuthUser(Integer id, String username, String password, String role) {
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.role = role;
-	}
 }

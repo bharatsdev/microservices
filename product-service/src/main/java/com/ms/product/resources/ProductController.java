@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -23,8 +24,8 @@ import com.netflix.discovery.EurekaClient;
  *
  */
 @RestController
+@Slf4j
 public class ProductController {
-	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(ProductController.class);
 	private static final String LOCAL_SERVER_PORT = "local.server.port";
 
 	@Autowired
@@ -41,7 +42,7 @@ public class ProductController {
 	 */
 	@GetMapping("/")
 	private ResponseEntity<String> getGreetings() {
-		LOGGER.info("Response From Product Service!");
+		log.info("Response From Product Service!");
 		return new ResponseEntity<>("Response From Product Service!", HttpStatus.OK);
 	}
 
@@ -52,7 +53,7 @@ public class ProductController {
 	 */
 	@GetMapping(value = "/products")
 	public List<Product> getAllProducts() {
-		LOGGER.info("[INFO] : GetAllProducts invoked..!");
+		log.info("[INFO] : GetAllProducts invoked..!");
 		List<Product> products = productService.getAllProduct();
 
 		// Application app = eurekaClient.getApplication("Exchange-Rate-Service");
@@ -71,13 +72,12 @@ public class ProductController {
 		// CurrencyConvesion.class, urivariables);
 		// CurrencyConvesion bean = responseEntity.getBody();
 
-		LOGGER.info("Get Instace Info by serice Name >>>>>" + products);
+		log.info("Get Instace Info by serice Name >>>>>" + products);
 
 		// new CurrencyConvesion(1l, from, to, bean.getConversionMultiple(), quantity,
 		// quantity.multiply(bean.getConversionMultiple()), bean.getPort());
 
 		return products;
-
 	}
 
 	/**
@@ -93,7 +93,5 @@ public class ProductController {
 			@PathVariable("quantity") BigDecimal quantity) {
 
 		return ResponseEntity.ok("[INFO] : Product controller port:" + env.getProperty(LOCAL_SERVER_PORT));
-
 	}
-
 }

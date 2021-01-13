@@ -1,21 +1,18 @@
-/**
- * 
- */
+
 package com.ms.common.auth.config;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 
 /**
  * @author Bharat2010
@@ -24,7 +21,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtTokenUtil implements Serializable {
 	private static final long serialVersionUID = -8451006447055499413L;
-	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+	public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60L;
 
 	@Value("${jwt.secret}")
 	private String jwtKey;
@@ -50,7 +47,7 @@ public class JwtTokenUtil implements Serializable {
 		return claimResolver.apply(claims);
 	}
 
-	public String retriveUserNameFromToken(String token) {
+	public String retrieveUserNameFromToken(String token) {
 		return getClaimFromToken(token, Claims::getSubject);
 	}
 
@@ -64,7 +61,7 @@ public class JwtTokenUtil implements Serializable {
 	}
 
 	public Boolean validateToken(String token, UserDetails userDetails) {
-		final String username = retriveUserNameFromToken(token);
+		final String username = retrieveUserNameFromToken(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}
 

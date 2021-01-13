@@ -1,12 +1,10 @@
 package com.ms.order.model;
 
-import java.math.BigDecimal;
-
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+
+import java.math.BigDecimal;
 
 /**
  * 
@@ -14,11 +12,9 @@ import lombok.ToString;
  *
  */
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Order {
 	private Long id;
 	private String from;
@@ -27,5 +23,4 @@ public class Order {
 	private BigDecimal quantity;
 	private BigDecimal totalCalculatedAmount;
 	private int port;
-
 }
