@@ -1,5 +1,16 @@
 version: '3.9'
 services:
+  mongo_conatiner:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: productdb
+    ports:
+      - 27017:27017
+    volumes:
+      - "/Volumes/Development/mongodb_1/db:/data/db"
+      - "/Volumes/Development/mongodb_1/configdb:/data/configdb"
+
   discovery:
     build: discovery-service
     image: discovery-service:latest
@@ -20,13 +31,14 @@ services:
       - discovery
     links:
       - discovery
+      - mongo_conatiner
     networks:
       - my_cloud_network
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
 
 
-  product:
+  product_container:
     build: product-service
     image: product-service:latest
     restart: on-failure
@@ -39,6 +51,7 @@ services:
     links:
       - order
       - discovery
+      - mongo_conatiner
     networks:
       - my_cloud_network
     environment:
@@ -54,7 +67,7 @@ services:
     depends_on:
       - discovery
       - order
-      - product
+      - product_container
     links:
       - discovery
     networks:
