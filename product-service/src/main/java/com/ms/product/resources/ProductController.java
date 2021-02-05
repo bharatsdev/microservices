@@ -1,12 +1,8 @@
 package com.ms.product.resources;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.ms.product.domain.Product;
+import com.ms.product.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -15,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ms.product.domain.Product;
-import com.ms.product.service.ProductService;
-import com.netflix.discovery.EurekaClient;
-
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /**
  * @author Bharat2010
  *
@@ -30,9 +26,9 @@ public class ProductController {
 
 	@Autowired
 	private Environment env;
-
-	@Autowired
-	private EurekaClient eurekaClient;
+//
+//	@Autowired
+//	private EurekaClient eurekaClient;
 
 	@Autowired
 	ProductService productService;

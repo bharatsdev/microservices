@@ -1,59 +1,67 @@
-version: '3'
+version: '3.9'
 services:
   discovery:
-    build: ./euraka-discovery
-    networks:
-    - my_cloud_network
-    ports:
-    - 8761:8761
-    - 18787:8787
+    build: discovery-service
+    image: discovery-service:latest
     restart: on-failure
-  exchangerate:
-    build: ./exchange-rates
     ports:
-    - 8200:8200
-    - 38787:8787
+      - 8761:8761
+      - 18787:8787
+    networks:
+      - my_cloud_network
+  order:
+    build: order-service
+    image: order-service:latest
+    restart: on-failure
+    ports:
+      - 8200:8200
+      - 38787:8787
     depends_on:
-    - discovery
+      - discovery
     links:
-    - discovery
+      - discovery
     networks:
-    - my_cloud_network
+      - my_cloud_network
     environment:
-    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
+
+
+  product:
+    build: product-service
+    image: product-service:latest
     restart: on-failure
-  converter:
-    build: ./currency-converter
     ports:
-    - 8300:8300
-    - 28787:8787
+      - 8300:8300
+      - 28787:8787
     depends_on:
-    - exchangerate
-    - discovery
+      - order
+      - discovery
     links:
-    - exchangerate
-    - discovery
+      - order
+      - discovery
     networks:
-    - my_cloud_network
+      - my_cloud_network
     environment:
-    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
-    restart: on-failure
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
+
   zuul-api-getway:
-    build: ./zuul-api-getway
+    build: api-getway
+    image: api-getway:latest
+    restart: on-failure
     ports:
-    - 8600:8600
-    - 8780:8787
+      - 8600:8600
+      - 8780:8787
     depends_on:
-    - discovery
-    - exchangerate
-    - converter
+      - discovery
+      - order
+      - product
     links:
-    - discovery
+      - discovery
     networks:
     - my_cloud_network
     environment:
     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
-    restart: on-failure
+
 networks:
   my_cloud_network:
     driver: bridge

@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Bharat2010
  *
  */
-@RestController
-@CrossOrigin
+
 @Slf4j
+@CrossOrigin
+@RestController
 public class JwtAuthenticationController {
 
 	@Autowired

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author Bharat2010
@@ -20,6 +21,7 @@ public class Product implements Serializable {
 	private String skuNo;
 	private String label;
 	private float price;
+	private Date createdAt = new Date();
 
 	public Product(String skuNo, String label, float price) {
 		super();

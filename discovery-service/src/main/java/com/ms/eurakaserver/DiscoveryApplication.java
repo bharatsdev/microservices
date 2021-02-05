@@ -6,17 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@SpringBootApplication
-@EnableEurekaServer
 @Slf4j
+@EnableEurekaServer
+@SpringBootApplication
 public class DiscoveryApplication {
-	/**
-	 * @return
-	 */
+
 	@GetMapping("/")
 	private String getGreetings() {
 		log.info("Response from NetflixEurekaServerApplication ");
-
 		return "This response from First NetflixEurekaServerApplication !";
 	}
 
