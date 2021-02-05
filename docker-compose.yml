@@ -20,7 +20,8 @@ services:
       - 18787:8787
     networks:
       - my_cloud_network
-  order:
+
+  order_ms:
     build: order-service
     image: order-service:latest
     restart: on-failure
@@ -38,7 +39,7 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery:8761/eureka/
 
 
-  product_container:
+  product_ms:
     build: product-service
     image: product-service:latest
     restart: on-failure
@@ -46,10 +47,11 @@ services:
       - 8300:8300
       - 28787:8787
     depends_on:
-      - order
+      - order_ms
       - discovery
+      - mongo_conatiner
     links:
-      - order
+      - order_ms
       - discovery
       - mongo_conatiner
     networks:
@@ -66,8 +68,8 @@ services:
       - 8780:8787
     depends_on:
       - discovery
-      - order
-      - product_container
+      - order_ms
+      - product_ms
     links:
       - discovery
     networks:
