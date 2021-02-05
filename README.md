@@ -2,21 +2,21 @@
 
 # Product Ordering - MicroServices
 
-	This repository has basic code related to MicroService in spring boot. 
-	- Creation of MicroServices
-	- Intercommunication in between MicroServices
-	- Authorization of Micro by JWT
-	- Dockerization of MicroServices
-	- Docker-Compose in MicroServices
+This repository has basic code related to MicroService in spring boot. 
+     
 
-# Technologies
+    - Creation of MicroServices
+    - Intercommunication in between MicroServices
+    - Authorization of Micro by JWT
+    - Dockerization of MicroServices
+    - Docker-Compose in MicroServices
 
-	- Java 8
-	- lombok
+# Tech Stack 
+
+	- Java 8 
 	- Spring Boot
 	- Maven
-	- H2 (With the Dev profile you can use H2, but with the Prod Profile you need to use MySQL)
-	- Tomcat
+    - MangoDB
 	- JWT
 	- Docker, Docker-compose
 
@@ -33,7 +33,9 @@
 	- docker-compose up  --force-recreate --build
 
 ## Configuration 
-  Port for each Service should be unique. Spring Boot
+  Port for each Service should be unique. 
+  
+        Spring Boot Application 
   
 ## Service Endpoints
 	 - http://localhost:8766
@@ -62,4 +64,5 @@
 	- Authentication
 	- Test case
 	- JWT integration
+    - Deploy Micro Service In Heroku or AWS with docker
 
