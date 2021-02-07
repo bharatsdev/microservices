@@ -28,8 +28,4 @@ public class OrderApplication {
 		return builder.build();
 	}
 
-	// @Bean
-	// public AlwaysSampler defaultSampler() {
-	// return new AlwaysSampler();
-	// }
 }

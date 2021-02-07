@@ -3,6 +3,7 @@ package com.ms.product;
 import com.ms.product.domain.Product;
 import com.ms.product.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @Slf4j
+@EnableRabbit
 @SpringBootApplication
 @EnableDiscoveryClient
 public class ProductApplication implements CommandLineRunner {
