@@ -5,11 +5,10 @@
 *.original
 *.lst
 *.springBeans
+*.iml
 /api-getway/target/
 /auth-service/target/
 /discovery-service/target/
 /order-service/target/
-*.iml
-/microservices.iml
 /product-service/target/
 /.idea/

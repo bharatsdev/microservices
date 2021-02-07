@@ -7,8 +7,8 @@ zuul:
     orderService:
       path: /orders/**
       service-id: order-service
-    authService:
-      path: /auth/**
-      service-id: auth-service
-      strip-prefix: true
-      sensitive-headers: Cookie,Set-Cookie
+#    authService:
+#      path: /auth/**
+#      service-id: auth-service
+#      strip-prefix: true
+#      sensitive-headers: Cookie,Set-Cookie

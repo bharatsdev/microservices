@@ -1,6 +1,6 @@
 package com.ms.order.resources;
 
-import com.ms.order.feignproxy.ProductRequestFeingProxy;
+import com.ms.order.feignproxy.ProductRequestFeignProxy;
 import com.ms.order.model.Order;
 import com.ms.order.model.Product;
 import com.netflix.appinfo.InstanceInfo;
@@ -36,13 +36,16 @@ public class OrderController {
 
 	@Autowired
 	private Environment env;
+
 	@Autowired
-	private ProductRequestFeingProxy productRequestFeingProxy;
+	private ProductRequestFeignProxy productRequestFeignProxy;
+
 	@Autowired
 	private EurekaClient eurekaClient;
 
 	/**
-	 * @return
+	 *
+	 * @return WIll return greeting message
 	 */
 	@GetMapping("/")
 	private ResponseEntity<String> getGreetings() {
@@ -51,7 +54,7 @@ public class OrderController {
 				HttpStatus.OK);
 	}
 
-	@PostMapping
+	@PostMapping("/")
 	public ResponseEntity<String> fetchOrder() {
 		return ResponseEntity.ok("Order Controller, Port: " + env.getProperty(LOCAL_SERVER_PORT));
 	}
@@ -68,41 +71,41 @@ public class OrderController {
 
 	}
 
-	/**
-	 * This service will use RestTemplate to communicate with another Micro Service
-	 * 
-	 * @param from
-	 * @param to
-	 * @param quantity
-	 * @return
-	 */
-	@GetMapping(value = "/currency-converter/from/{from}/to/{to}/quantity/{quantity}")
-	public Order convert(@PathVariable("from") String from, @PathVariable("to") String to,
-			@PathVariable("quantity") BigDecimal quantity) {
-
-		log.info("Get Instace Info by serice Name");
-		Application app = eurekaClient.getApplication("Exchange-Rate-Service");
-		List<InstanceInfo> instanceList = app.getInstances();
-		InstanceInfo instacne = instanceList.get(0);
-		log.info("{}", instacne.getIPAddr());
-
-		// Feign - Problem 1
-		Map<String, String> urivariables = new HashMap<>();
-		urivariables.put("from", from);
-		urivariables.put("to", to);
-		// ResponseEntity<CurrencyConvesion> responseEntity = new
-		// RestTemplate().getForEntity(
-		// "http://" + instacne.getIPAddr() + ":" + instacne.getPort() +
-		// "/exchange-rates/from/{from}/to/{to}",
-		// CurrencyConvesion.class, urivariables);
-		// CurrencyConvesion bean = responseEntity.getBody();
-
-		log.info("Get Instace Info by serice Name >>>>>");
-
-		return null;
-		// new CurrencyConvesion(1l, from, to, bean.getConversionMultiple(), quantity,
-		// quantity.multiply(bean.getConversionMultiple()), bean.getPort());
-	}
+//	/**
+//	 * This service will use RestTemplate to communicate with another Micro Service
+//	 *
+//	 * @param from
+//	 * @param to
+//	 * @param quantity
+//	 * @return
+//	 */
+//	@GetMapping(value = "/currency-converter/from/{from}/to/{to}/quantity/{quantity}")
+//	public Order convert(@PathVariable("from") String from, @PathVariable("to") String to,
+//			@PathVariable("quantity") BigDecimal quantity) {
+//
+//		log.info("Get Instace Info by serice Name");
+//		Application app = eurekaClient.getApplication("Exchange-Rate-Service");
+//		List<InstanceInfo> instanceList = app.getInstances();
+//		InstanceInfo instacne = instanceList.get(0);
+//		log.info("{}", instacne.getIPAddr());
+//
+//		// Feign - Problem 1
+//		Map<String, String> urivariables = new HashMap<>();
+//		urivariables.put("from", from);
+//		urivariables.put("to", to);
+//		// ResponseEntity<CurrencyConvesion> responseEntity = new
+//		// RestTemplate().getForEntity(
+//		// "http://" + instacne.getIPAddr() + ":" + instacne.getPort() +
+//		// "/exchange-rates/from/{from}/to/{to}",
+//		// CurrencyConvesion.class, urivariables);
+//		// CurrencyConvesion bean = responseEntity.getBody();
+//
+//		log.info("Get Instace Info by serice Name >>>>>");
+//
+//		return null;
+//		// new CurrencyConvesion(1l, from, to, bean.getConversionMultiple(), quantity,
+//		// quantity.multiply(bean.getConversionMultiple()), bean.getPort());
+//	}
 
 	/**
 	 * Inter-communication in between Micro service over Feing client * @param from
@@ -111,7 +114,7 @@ public class OrderController {
 	@GetMapping(value = "/products")
 	public ResponseEntity<List<Product>> fetchProducts() {
 		log.info("[INFO] : fetchProducts invoked....!");
-		List<Product> responseBean = productRequestFeingProxy.retrieveProducts();
+		List<Product> responseBean = productRequestFeignProxy.retrieveProducts();
 		log.info(" {}  Response ", responseBean);
 
 		return ResponseEntity.ok().body(responseBean);

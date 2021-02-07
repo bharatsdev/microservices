@@ -3,8 +3,8 @@ FROM openjdk:8-jre-alpine
 
 MAINTAINER  everythingisdata.githib.io 
 
-COPY . /var/converter
-WORKDIR /var/converter
+COPY . /app
+WORKDIR /app
 
 
 #To Reduce Tomcat startup time. We added a system property pointing to "dev/urandom" as source of entropy.

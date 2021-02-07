@@ -3,6 +3,7 @@ package com.ms.order.feignproxy;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
 import com.ms.order.model.Product;
@@ -14,10 +15,13 @@ import com.ms.order.model.Product;
  *
  */
 @Configuration
-public class ProductRequestFallback implements ProductRequestFeingProxy {
+@Slf4j
+public class ProductRequestFallback implements ProductRequestFeignProxy {
 
 	@Override
-	public List<Product> retrieveProducts() {
+	public List<Product> retrieveProducts()
+	{
+		log.error(" fallback");
  		return new ArrayList<>();
 	}
 
