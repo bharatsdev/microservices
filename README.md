@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/everythingisdata/microservices.svg?branch=master)](https://travis-ci.org/everythingisdata/microservices)
+[![Build Status](https://travis-ci.com/everythingisdata/microservices.svg?branch=master)](https://travis-ci.com/everythingisdata/microservices)
 
 # Product Ordering - MicroServices
 
